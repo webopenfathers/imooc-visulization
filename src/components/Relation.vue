@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import * as echarts from 'echarts'
 
 const props = defineProps({
@@ -28,4 +28,7 @@ const renderChart = () => {
 
   myChart.setOption(options)
 }
+
+// 监听数据改变重新渲染
+watch(() => props.data, renderChart)
 </script>
