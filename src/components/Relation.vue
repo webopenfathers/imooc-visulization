@@ -48,7 +48,7 @@ const renderChart = () => {
         edgeLabel: {
           normal: {
             show: true,
-            color: '#fff',
+            color: '#FFF',
             textStyle: {
               fontSize: 14,
             },
@@ -76,10 +76,6 @@ const renderChart = () => {
             // 非数据中心
             return {
               name: item.name,
-              category: 0,
-              // 是否是活动的数据
-              active: true,
-              speed: `${item.speed}kb/s`,
               value: item.value,
             }
           } else {
@@ -112,7 +108,7 @@ const renderChart = () => {
             }
           }
         }),
-        // 设置节点之间的数据关系links
+        // 设置节点之间连接线的数据关系links
         links: props.data.relations.map((item) => ({
           source: item.source,
           target: item.target,
@@ -134,7 +130,7 @@ const renderChart = () => {
           },
         })),
       },
-      // 配置二 lines
+      // 配置二 lines---配置会动的箭头
       {
         type: 'lines',
         coordinateSystem: 'cartesian2d',
