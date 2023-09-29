@@ -39,4 +39,18 @@ import MapChart from './components/MapChart.vue'
 import VerticalBar from './components/VerticalBar.vue'
 import RingBar from './components/RingBar.vue'
 import WordCloud from './components/WordCloud.vue'
+
+import { getVisualization } from './api/visualization'
+import { ref } from 'vue'
+
+const data = ref(null)
+
+const loadData = async () => {
+  data.value = await getVisualization()
+}
+
+loadData()
+setInterval(() => {
+  loadData()
+}, 3000)
 </script>
