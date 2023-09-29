@@ -10,7 +10,7 @@
       <!-- 雷达图 -->
       <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData" />
       <!-- 关系图 -->
-      <Relation class="h-1/3" />
+      <Relation class="h-1/3" :data="data.relationData" />
     </div>
     <!-- 中 -->
     <div class="w-1/2 mr-5 flex flex-col">
