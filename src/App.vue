@@ -1,11 +1,12 @@
 <template>
   <div
     class="bg-[url('assets/imgs/bg.jpg')] bg-cover bg-center h-screen text-white p-5 flex overflow-hidden"
+    v-if="data"
   >
     <!-- 左 -->
     <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!-- 横向柱状图 -->
-      <HorizontalBar class="h-1/3 box-border pb-4" />
+      <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData" />
       <!-- 雷达图 -->
       <RadarBar class="h-1/3 box-border pb-4" />
       <!-- 关系图 -->
