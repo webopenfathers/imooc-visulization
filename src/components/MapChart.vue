@@ -35,7 +35,7 @@ const renderChart = () => {
       // 时间轴位置
       left: '10%',
       right: '10%',
-      bottom: '10%',
+      bottom: '0%',
       width: '80%',
       // 时间轴文本
       label: {
@@ -83,7 +83,99 @@ const renderChart = () => {
         },
       },
     },
+    // 柱形图展示范围
+    baseOption: {
+      grid: {
+        right: '2%',
+        top: '15%',
+        bottom: '10%',
+        width: '20%',
+      },
+    },
+    options: [],
   }
+
+  // 柱形图
+  props.data.voltageLevel.forEach((item, index) => {
+    options.options.push({
+      backgroundColor: '#142037',
+      title: [
+        // 大title
+        {
+          text: '2019-2023 年度数据统计',
+          left: 0,
+          top: 0,
+          textStyle: {
+            color: '#ccc',
+            fontSize: 30,
+          },
+        },
+        // 小标题
+        {
+          id: 'statistic',
+          text: item + '年数据统计情况',
+          right: '0%',
+          top: '4%',
+          textStyle: {
+            color: '#ccc',
+            fontSize: 20,
+          },
+        },
+      ],
+      xAxis: {
+        type: 'value',
+        // 脱离0值比例
+        scale: true,
+        position: 'top',
+        splitLine: {
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
+        axisTick: {
+          show: false,
+        },
+        axisLabel: {
+          margin: 2,
+          textStyle: {
+            color: '#aaa',
+          },
+        },
+      },
+      yAxis: {
+        type: 'category',
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: '#ddd',
+          },
+        },
+        axisTick: {
+          show: false,
+        },
+        axisLabel: {
+          interval: 0,
+          textStyle: {
+            color: '#ddd',
+          },
+        },
+        data: props.data.categoryData[item].map((item) => item.name),
+      },
+      series: [
+        {
+          type: 'bar',
+          zlevel: 1.5,
+          itemStyle: {
+            normal: {
+              color: props.data.colors[index],
+            },
+          },
+          data: props.data.categoryData[item].map((item) => item.value),
+        },
+      ],
+    })
+  })
 
   myChart.setOption(options)
 }
