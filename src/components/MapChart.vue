@@ -52,17 +52,17 @@ const renderChart = () => {
           },
         },
       },
-      // 文字大小
+      // 每个小圆点大小
       symbolSize: 10,
       // 线的颜色
       lineStyle: {
         color: '#555',
       },
-      // 选中点的颜色
+      // 选中每个小圆点的颜色
       checkpointStyle: {
-        // 边框颜色
+        // 每个小圆点边框颜色
         borderColor: '#888',
-        // 边框宽度
+        // 每个小圆点边框宽度
         borderWidth: 2,
         // 控件样式
         controlStyle: {
