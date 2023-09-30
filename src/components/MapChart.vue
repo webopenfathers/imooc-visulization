@@ -6,6 +6,7 @@
 
 <script setup>
 import { onMounted, ref, watch } from 'vue'
+import mapJson from '@/assets/MapData/china.json'
 import * as echarts from 'echarts'
 
 const props = defineProps({
@@ -18,6 +19,8 @@ const props = defineProps({
 const target = ref(null)
 let myChart = null
 onMounted(() => {
+  // 注册地图json文件
+  echarts.registerMap('china', mapJson)
   myChart = echarts.init(target.value)
   renderChart()
 })
@@ -90,6 +93,46 @@ const renderChart = () => {
         top: '15%',
         bottom: '10%',
         width: '20%',
+      },
+      // 地图配置
+      geo: {
+        show: true,
+        map: 'china',
+        // 开启缩放
+        roam: true,
+        zoom: 0.8,
+        // 中心点==经纬度
+        center: [113.83531246, 34.0267395887],
+        // 默认状态下省份样式
+        itemStyle: {
+          normal: {
+            borderColor: 'rgba(147,235,248,1)',
+            borderWidth: 1,
+            // 区域颜色
+            areaColor: {
+              type: 'radial',
+              x: 0.5,
+              y: 0.5,
+              r: 0.5,
+              // 设置渐变色
+              colorStops: [
+                {
+                  offset: 0,
+                  color: 'rgba(147,235,248,0)',
+                },
+                {
+                  offset: 1,
+                  color: 'rgba(147,235,248,.2)',
+                },
+              ],
+            },
+          },
+          // 鼠标移入高亮色值设置
+          emphasis: {
+            areaColor: '#389BB7',
+            borderWidth: 0,
+          },
+        },
       },
     },
     options: [],
