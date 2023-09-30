@@ -216,6 +216,38 @@ const renderChart = () => {
           },
           data: props.data.categoryData[item].map((item) => item.value),
         },
+        {
+          // 散点图
+          type: 'effectScatter',
+          // 指定散点图坐标系
+          coordinateSystem: 'geo',
+          // 数据==>省份名 经纬度 数据
+          data: props.data.topData[item],
+          // 点的大小
+          symbolSize: function (val) {
+            return val[2] / 6
+          },
+          // 绘制波纹特效
+          rippleEffect: {
+            brushType: 'stroke',
+          },
+          // 文字
+          label: {
+            normal: {
+              formatter: '{b}',
+              position: 'right',
+              show: true,
+            },
+          },
+          // 每一项的样式
+          itemStyle: {
+            normal: {
+              color: props.data.colors[index],
+              shadowBlur: 5,
+              showShadowColor: props.data.colors[index],
+            },
+          },
+        },
       ],
     })
   })
