@@ -203,7 +203,11 @@ const renderChart = () => {
             color: '#ddd',
           },
         },
-        data: props.data.categoryData[item].map((item) => item.name),
+        data: props.data.categoryData[item]
+          .sort((a, b) => {
+            return a.value - b.value
+          })
+          .map((item) => item.name),
       },
       series: [
         {
@@ -214,7 +218,11 @@ const renderChart = () => {
               color: props.data.colors[index],
             },
           },
-          data: props.data.categoryData[item].map((item) => item.value),
+          data: props.data.categoryData[item]
+            .sort((a, b) => {
+              return a.value - b.value
+            })
+            .map((item) => item.value),
         },
         {
           // 散点图
