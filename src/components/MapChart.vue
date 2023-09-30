@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import mapJson from '@/assets/MapData/china.json'
 import * as echarts from 'echarts'
 
@@ -254,7 +254,4 @@ const renderChart = () => {
 
   myChart.setOption(options)
 }
-
-// 监听数据改变重新渲染
-watch(() => props.data, renderChart)
 </script>
