@@ -64,8 +64,12 @@ const renderChart = () => {
           // 随机色值
           color: randomRGB,
         },
+        // 高亮字体
         emphasis: {
-          focus: 'none',
+          textStyle: {
+            fontWeight: 'bold',
+            color: '#000',
+          },
         },
         data: props.data.datas,
       },

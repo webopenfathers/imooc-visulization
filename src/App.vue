@@ -15,7 +15,10 @@
     <!-- 中 -->
     <div class="w-1/2 mr-5 flex flex-col">
       <!-- 数据总览图 -->
-      <TotalData class="bg-opacity-50 bg-slate-800 p-3" />
+      <TotalData
+        class="bg-opacity-50 bg-slate-800 p-3"
+        :data="data.totalData"
+      />
       <!-- 地图可视化 -->
       <MapChart class="bg-opacity-50 bg-slate-800 p-3 mt-2 flex-1" />
     </div>
