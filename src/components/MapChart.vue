@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>【服务资源占用比】</div>
     <div ref="target" class="w-full h-full"></div>
   </div>
 </template>
@@ -24,7 +23,67 @@ onMounted(() => {
 })
 
 const renderChart = () => {
-  const options = {}
+  const options = {
+    // 时间线
+    timeline: {
+      data: props.data.voltageLevel,
+      axisType: 'category',
+      // 时间线自动切换
+      autoPlay: true,
+      // 切换时间
+      playInterval: 3000,
+      // 时间轴位置
+      left: '10%',
+      right: '10%',
+      bottom: '10%',
+      width: '80%',
+      // 时间轴文本
+      label: {
+        // 默认字体
+        normal: {
+          textStyle: {
+            color: '#ddd',
+          },
+        },
+        // 高亮字体
+        emphasis: {
+          textStyle: {
+            color: '#fff',
+          },
+        },
+      },
+      // 文字大小
+      symbolSize: 10,
+      // 线的颜色
+      lineStyle: {
+        color: '#555',
+      },
+      // 选中点的颜色
+      checkpointStyle: {
+        // 边框颜色
+        borderColor: '#888',
+        // 边框宽度
+        borderWidth: 2,
+        // 控件样式
+        controlStyle: {
+          // 下一步按钮
+          showNextBtn: true,
+          // 上一步按钮
+          showPrevBtn: true,
+          // 默认样式
+          normal: {
+            color: '#666',
+            borderColor: '#666',
+          },
+          // 高亮样式
+          emphasis: {
+            color: '#aaa',
+            borderColor: '#aaa',
+          },
+        },
+      },
+    },
+  }
 
   myChart.setOption(options)
 }
