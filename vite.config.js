@@ -11,5 +11,11 @@ export default defineConfig({
   },
   server: {
     hmr: true,
+    proxy: {
+      '/api': {
+        target: 'https://api.imooc-web.lgdsunday.club',
+        changeOrigin: true,
+      },
+    },
   },
 })

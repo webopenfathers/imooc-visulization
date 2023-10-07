@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const service = axios.create({
-  baseURL: 'https://api.imooc-web.lgdsunday.club/api',
+  baseURL: '/api',
   timeout: 5000,
 })
 
